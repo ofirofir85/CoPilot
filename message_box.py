@@ -1,8 +1,9 @@
-import base_module
+from base_module import BaseModule
+import win32api
+
+MESSAGE = 'message'
 
 class MessageBox(BaseModule):
-
-    MESSAGE = 'message'
 
     def __init__(self):
         my_param = 'deafult text'

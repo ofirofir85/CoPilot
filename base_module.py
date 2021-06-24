@@ -1,6 +1,4 @@
 import json
-import win32api
-import keyboard
 import glob
 
 HOT_KEY = 'hot_key'

@@ -21,7 +21,6 @@ class BaseModule():
         with open(f'{self.name}.json', 'w') as f:
             json.dump(new_config, f)
 
-
     def load_config(self):
         with open(f'{self.name}.json', 'r') as f:
             self.config = json.load(f)

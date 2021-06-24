@@ -6,8 +6,8 @@ MESSAGE = 'message'
 class MessageBox(BaseModule):
 
     def __init__(self):
-        my_param = 'deafult text'
-        super().__init__({MESSAGE: my_param})
+        message = 'deafult text'
+        super().__init__({MESSAGE: message})
     
     def run(self):
         win32api.MessageBox(0, self.config[MESSAGE], 'Title')

@@ -1,5 +1,11 @@
 import win32api
-import paperclip
+import pyperclip
 
 def show_popup(title, message):
-    pass
+    win32api.MessageBox(0, message, title)
+
+def put_in_paste(data):
+    pyperclip.copy(data)
+
+def get_copied_data():
+    return pyperclip.paste()

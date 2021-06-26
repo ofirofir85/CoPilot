@@ -1,5 +1,5 @@
 from base_module import BaseModule
-import win32api
+from module_utils import show_popup, get_copied_data
 import ipinfo
 import keyboard
 import pyperclip
@@ -11,9 +11,9 @@ class IPInfo(BaseModule):
     
     def run(self):
         handler = ipinfo.getHandler(TOKEN)
-        details = handler.getDetails(self.get_ip())
-        win32api.MessageBox(0, details.region, 'Title')
-    
-    def get_ip(self):
-        return pyperclip.paste()
+        ip = get_copied_data()
+        print(ip)
+        details = handler.getDetails(ip)
+        print(details)
+        show_popup('Ip Info', details.region)
         

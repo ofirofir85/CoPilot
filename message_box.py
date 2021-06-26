@@ -1,5 +1,5 @@
 from base_module import BaseModule
-import win32api
+from module_utils import show_popup
 
 MESSAGE = 'message'
 
@@ -10,4 +10,4 @@ class MessageBox(BaseModule):
         super().__init__({MESSAGE: message})
     
     def run(self):
-        win32api.MessageBox(0, self.config[MESSAGE], 'Title')
+        show_popup('Copilot', self.config[MESSAGE])

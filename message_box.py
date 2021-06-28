@@ -1,5 +1,5 @@
 from base_module import BaseModule
-from module_utils import show_popup
+from module_utils import show_popup, get_copied_data
 
 MESSAGE = 'message'
 
@@ -10,4 +10,7 @@ class MessageBox(BaseModule):
         super().__init__({MESSAGE: message})
     
     def run(self):
-        show_popup('Copilot', self.config[MESSAGE])
+        message = get_copied_data()
+        if not message:
+            message = self.config[MESSAGE]
+        show_popup('Copilot', message)

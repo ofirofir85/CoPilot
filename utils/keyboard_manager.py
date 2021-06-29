@@ -43,6 +43,7 @@ class KeyBoardManager:
     @staticmethod
     def edit_module(module_config):
         module_name = module_config['module_name']
+        module_config.pop('module_name', None)
         instance = KeyBoardManager.create_instance(module_name)
         instance.update_config(module_config)
         KeyBoardManager.set_module_state(module_config, instance)

@@ -1,5 +1,5 @@
-from base_module import BaseModule
-from module_utils import show_popup, get_highlighted, put_in_paste
+from modules.base_module import BaseModule
+from modules.module_utils import show_popup, get_highlighted, put_in_paste
 from utm import from_latlon, to_latlon
 import re
 

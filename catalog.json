@@ -1,14 +1,20 @@
 {
     "IpInfo" : {
       "module_name": "ip_info",
-       "description": "module1 description",
+       "description": "gets the country information of a highlighted IP",
         "likes": 123,
-        "hashtags": ["a", "b"]
+        "hashtags": ["tech", "network"]
     },
     "TextCleaner" : {
       "module_name": "text_cleaner",
-        "description": "module2 description",
-        "likes": 123,
-        "hashtags": ["c", "d"]
+        "description": "Cleans highlighted text from all kinds of irregular characters, or user defined.",
+        "likes": 47,
+        "hashtags": ["text", "general"]
+    },
+	"ConvertCoordinate" : {
+      "module_name": "convert_coordinate",
+        "description": "Convert Coordinate.",
+        "likes": 47,
+        "hashtags": ["Geo", "9900"]
     }
 }

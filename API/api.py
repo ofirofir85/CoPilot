@@ -1,3 +1,8 @@
+"""
+This module is our BackEnd of the application.
+Currently we support different methods, such as config modules, fetching all the available
+modules in the "catalog" modify configurations for those modules and for abbreviations.
+"""
 import json
 import copy
 from flask import Flask, request

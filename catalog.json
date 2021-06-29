@@ -1,12 +1,12 @@
 {
     "module1" : {
-      "module_name": "module1",
-       "description": "module1 description",
-        "likes": 123,
+      "module_name": "ip_info",
+      "description": "module1 description",
+      "likes": 123,
         "hashtags": ["a", "b"]
     },
     "module2" : {
-      "module_name": "module2",
+      "module_name": "text_cleaner",
         "description": "module2 description",
         "likes": 123,
         "hashtags": ["c", "d"]

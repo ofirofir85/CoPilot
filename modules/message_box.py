@@ -1,5 +1,5 @@
-from base_module import BaseModule
-from module_utils import show_popup, get_copied_data
+from modules.base_module import BaseModule
+from modules.module_utils import show_popup, get_copied_data
 
 MESSAGE = 'message'
 

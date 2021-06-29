@@ -1,18 +1,18 @@
 from base_module import BaseModule
-from module_utils import show_popup, get_copied_data, put_in_paste
+from module_utils import show_popup, get_highlighted, put_in_paste
 from utm import from_latlon, to_latlon
 import re
 
 UTM_FORMAT = "UTM {slice}N {lat} E / {lon} N"
 GWS_FORMAT = "WGS84 GEO {lat} E / {lon} N"
-GWS_REGEX = '.*(\d{2}\.\d*)\s*E\s*/\s*(\d{2}\.\d*)\s*N'
-UTM_REGEX = '.*(\d+)([C-X]).*(\d{6}\.\d*)\s*E\s*/\s*(\d{7}\.\d*)\s*N'
+GWS_REGEX = '(\d{1,3}\.\d*)\s*E\s*/\s*(\d{1,3}\.\d*)\s*N.*'
+UTM_REGEX = '(\d{1,3})([C-X]).*(\d{6,7}\.\d*)\s*E\s*/\s*(\d{6,7}\.\d*)\s*N.*'
         
 
 class ConvertCoordinate(BaseModule):
     
     def run(self):
-        orig = get_copied_data()
+        orig = get_highlighted()
         gws_match = re.search(GWS_REGEX, orig)
         utm_match = re.search(UTM_REGEX, orig)
         if gws_match:
@@ -25,6 +25,8 @@ class ConvertCoordinate(BaseModule):
             formated_convertion = GWS_FORMAT.format(lat=raw_convertion[0], lon=raw_convertion[1])
 
         if gws_match or utm_match:
-            show_popup('Converted coordinate', formated_convertion)
-            put_in_paste(formated_convertion)   
+            #show_popup('Converted coordinate', formated_convertion)
+            put_in_paste(formated_convertion)
+        else:
+            show_popup('Error', 'Invalid input!')   
         

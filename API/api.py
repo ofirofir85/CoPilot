@@ -30,11 +30,19 @@ def set_module_state():
     return 'OK'
 
 
-@app.route('/get_config', methods=['POST'])
-def get_config():
+@app.route('/get_module_config', methods=['POST'])
+def get_module_config():
     module_config = json.loads(request.data)
     file_name = module_config['module_name'].title().replace('_', '') + '.json'
     with open(file_name, 'rb') as f:
         j = f.read()
 
     return json.loads(j)
+
+
+@app.route('/set_abbreviation', methods=['POST'])
+def set_abbreviation():
+    abbreviation_config = json.loads(request.data)
+    KeyBoardManager.set_abbreviation(abbreviation_config)
+
+    return "OK"

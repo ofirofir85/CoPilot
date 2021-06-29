@@ -1,13 +1,16 @@
 import json
 from flask import Flask, request
-
+from flask_cors import CORS
 from utils import keyboard_manager
 from utils.keyboard_manager import KeyBoardManager
 import os
 
 app = Flask(__name__)
+CORS(app, resources="*")
+
 CATALOG_FILE = "catalog.json"
 MY_MODULES_DIRECTORY = "my_modules"
+
 
 @app.route('/get_catalog', methods=['GET'])
 def get_catalog():

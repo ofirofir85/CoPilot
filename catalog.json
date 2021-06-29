@@ -1,11 +1,13 @@
 {
     "module1" : {
+      "module_name": "module1",
        "description": "module1 description",
         "likes": 123,
         "hashtags": ["a", "b"]
     },
     "module2" : {
-        "description": "module1 description",
+      "module_name": "module2",
+        "description": "module2 description",
         "likes": 123,
         "hashtags": ["c", "d"]
     }

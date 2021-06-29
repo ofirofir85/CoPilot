@@ -29,15 +29,18 @@ def get_catalog():
 def get_my_modules():
     exist_modules = []
     for file in os.listdir(MY_MODULES_DIRECTORY):
+        print(file)
         suffix = ".json"
         if file.endswith(suffix):
             module_name = file.split(".")[0]
             exist_modules.append(module_name)
+            print(exist_modules)
 
     parsed_elements = []
     with open(CATALOG_FILE, 'rb') as f:
         catalog_elements = json.loads(f.read())
-
+       
+    print(catalog_elements)
     for catalog_element in catalog_elements:
         if catalog_element in exist_modules:
             new_data = copy.deepcopy(catalog_elements[catalog_element])
@@ -77,7 +80,7 @@ def set_module_state():
 def get_module_config():
     module_config = json.loads(request.data)
     file_name = module_config['module_name'].title().replace('_', '') + '.json'
-    with open(file_name, 'rb') as f:
+    with open(MY_MODULES_DIRECTORY + '\\' + file_name, 'rb') as f:
         j = f.read()
 
     return json.loads(j)

@@ -1,4 +1,5 @@
 import json
+import copy
 from flask import Flask, request
 from flask_cors import CORS
 from utils import keyboard_manager
@@ -26,16 +27,27 @@ def get_catalog():
 
 @app.route('/get_my_modules', methods=['GET'])
 def get_my_modules():
-    modules = {}
+    exist_modules = []
     for file in os.listdir(MY_MODULES_DIRECTORY):
         suffix = ".json"
         if file.endswith(suffix):
             module_name = file.split(".")[0]
-            with open(os.path.join(MY_MODULES_DIRECTORY, file), "rb") as f:
-                modules[module_name] = json.loads(f.read())
+            exist_modules.append(module_name)
 
-    return modules
+    parsed_elements = []
+    with open(CATALOG_FILE, 'rb') as f:
+        catalog_elements = json.loads(f.read())
 
+    for catalog_element in catalog_elements:
+        if catalog_element in exist_modules:
+            new_data = copy.deepcopy(catalog_elements[catalog_element])
+            with open(MY_MODULES_DIRECTORY + '\\' + catalog_element + ".json", 'rb') as f:
+                configuration = json.loads(f.read())
+            new_data['configuration'] = configuration
+            parsed_elements.append(new_data)
+
+    print(parsed_elements)
+    return {'data': parsed_elements}
 
 
 @app.route('/install_module', methods=['POST'])

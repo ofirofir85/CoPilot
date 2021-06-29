@@ -3,8 +3,31 @@ from flask import Flask, request
 
 from utils import keyboard_manager
 from utils.keyboard_manager import KeyBoardManager
+import os
 
 app = Flask(__name__)
+CATALOG_FILE = "catalog.json"
+MY_MODULES_DIRECTORY = "my_modules"
+
+@app.route('/get_catalog', methods=['GET'])
+def get_catalog():
+    with open(CATALOG_FILE, 'rb') as f:
+        catalog_elements = json.loads(f.read())
+
+    return catalog_elements
+
+@app.route('/get_my_modules', methods=['GET'])
+def get_my_modules():
+    modules = {}
+    for file in os.listdir(MY_MODULES_DIRECTORY):
+        suffix = ".json"
+        if file.endswith(suffix):
+            module_name = file.split(".")[0]
+            with open(os.path.join(MY_MODULES_DIRECTORY, file), "rb") as f:
+                modules[module_name] = json.loads(f.read())
+
+    return modules
+
 
 
 @app.route('/install_module', methods=['POST'])

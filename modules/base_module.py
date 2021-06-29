@@ -18,11 +18,11 @@ class BaseModule():
             self.update_config(self.config)
 
     def update_config(self, new_config):
-        with open(f'{self.name}.json', 'w') as f:
+        with open("my_modules\\{}.json".format(self.name), 'w') as f:
             json.dump(new_config, f)
 
     def load_config(self):
-        with open(f'{self.name}.json', 'r') as f:
+        with open("my_modules\\{}.json".format(self.name), 'r') as f:
             self.config = json.load(f)
 
     def get_config(self):

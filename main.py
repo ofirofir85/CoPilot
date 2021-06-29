@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from text_cleaner import TextCleaner
 import keyboard
 from message_box import MessageBox
@@ -31,6 +32,9 @@ def main():
     keyboard.add_hotkey(wfr.config['hot_key'], wfr.run)
 
     keyboard.wait('esc')
+=======
+from API.api import app
+>>>>>>> 2e5f9f7af33d5f06c16585a44cf29c2dacd5b6b4
 
 if __name__ == '__main__':
-    main()
+    app.run()

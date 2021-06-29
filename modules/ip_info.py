@@ -1,5 +1,5 @@
-from base_module import BaseModule
-from module_utils import show_popup, get_highlighted, put_in_paste
+from modules.base_module import BaseModule
+from modules.module_utils import show_popup, get_highlighted, put_in_paste
 import ipinfo
 import re
 
@@ -7,7 +7,7 @@ TOKEN = 'ca28d275177fa3'
 
 IP_REGEX = '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}'
 
-class IPInfo(BaseModule):
+class IpInfo(BaseModule):
     
     def run(self):
         highlighted = get_highlighted()

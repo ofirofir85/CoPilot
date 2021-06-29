@@ -1,9 +1,9 @@
-from TextCleaner import TextCleaner
+from text_cleaner import TextCleaner
 import keyboard
 from message_box import MessageBox
 from ip_info import IPInfo
 from convert_coordinate import ConvertCoordinate
-from david12 import David12
+from word_format_regulator import WordFormatRegulator
 
 def main():
     mm = MessageBox()
@@ -26,9 +26,9 @@ def main():
     cc.config['hot_key'] = 'alt+n'
     keyboard.add_hotkey(cc.config['hot_key'], cc.run)
 
-    d12 = David12()
-    d12.config['hot_key'] = 'q'
-    keyboard.add_hotkey(d12.config['hot_key'], d12.run)
+    wfr = WordFormatRegulator()
+    wfr.config['hot_key'] = 'ctrl+alt+b'
+    keyboard.add_hotkey(wfr.config['hot_key'], wfr.run)
 
     keyboard.wait('esc')
 

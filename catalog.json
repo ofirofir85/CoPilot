@@ -1,11 +1,11 @@
 {
-    "module1" : {
+    "IpInfo" : {
       "module_name": "ip_info",
-      "description": "module1 description",
-      "likes": 123,
+       "description": "module1 description",
+        "likes": 123,
         "hashtags": ["a", "b"]
     },
-    "module2" : {
+    "TextCleaner" : {
       "module_name": "text_cleaner",
         "description": "module2 description",
         "likes": 123,

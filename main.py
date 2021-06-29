@@ -1,3 +1,4 @@
+from TextCleaner import TextCleaner
 import keyboard
 from message_box import MessageBox
 from ip_info import IPInfo
@@ -17,6 +18,9 @@ def main():
     ip.config['hot_key'] = 'alt+r'
     keyboard.add_hotkey(ip.config['hot_key'], ip.run)
     
+    tc = TextCleaner()
+    tc.config['hot_key'] = 'alt+k'
+    keyboard.add_hotkey(tc.config['hot_key'], tc.run)
 
     cc = ConvertCoordinate()
     cc.config['hot_key'] = 'alt+n'

@@ -1,4 +1,4 @@
-from base_module import BaseModule
+from modules.base_module import BaseModule
 from win32gui import GetWindowText, GetForegroundWindow
 import keyboard
 import time

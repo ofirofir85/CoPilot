@@ -2,8 +2,8 @@ from text_cleaner import TextCleaner
 import keyboard
 from message_box import MessageBox
 from ip_info import IpInfo
-from convert_coordinate import ConvertCoordinate
-from word_format_regulator import WordFormatRegulator
+from modules.convert_coordinate import ConvertCoordinate
+from modules.word_format_regulator import WordFormatRegulator
 
 def main():
     mm = MessageBox()

@@ -1,5 +1,5 @@
-from base_module import BaseModule
-from module_utils import show_popup, get_copied_data, put_in_paste
+from modules.base_module import BaseModule
+from modules.module_utils import show_popup, get_copied_data, put_in_paste
 
 ALPHA = 'alpha'
 PUNCT = 'punctuation'
@@ -10,7 +10,7 @@ PUNCT_LIST = ['/', '\\', ',', '.', ';', '-', '_',"#","^","&","(",")"]
 
 class TextCleaner(BaseModule):
     def __init__(self):
-        super().__init__({ALPHA:True, PUNCT:False, SPACE:False, IS_USER_LIST_ACTIVATED:False, USER_LIST:'g J j G'})
+        super().__init__({ALPHA:True, PUNCT:False, SPACE:False, IS_USER_LIST_ACTIVATED:False, USER_LIST:''})
 
     def run(self):
         txt = get_copied_data()

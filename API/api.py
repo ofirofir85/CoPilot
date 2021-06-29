@@ -14,10 +14,15 @@ MY_MODULES_DIRECTORY = "my_modules"
 
 @app.route('/get_catalog', methods=['GET'])
 def get_catalog():
+    parsed_elements = []
     with open(CATALOG_FILE, 'rb') as f:
         catalog_elements = json.loads(f.read())
 
-    return catalog_elements
+    for catalog_element in catalog_elements:
+        parsed_elements.append(catalog_elements[catalog_element])
+
+    return {'data': parsed_elements}
+
 
 @app.route('/get_my_modules', methods=['GET'])
 def get_my_modules():

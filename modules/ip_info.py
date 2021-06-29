@@ -1,5 +1,5 @@
-from modules.base_module import BaseModule
-from modules.module_utils import show_popup, get_highlighted, put_in_paste
+from base_module import BaseModule
+from module_utils import show_popup, get_highlighted, put_in_paste
 import ipinfo
 import re
 
